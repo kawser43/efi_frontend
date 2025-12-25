@@ -40,7 +40,7 @@ const menuGroup = [
     label: "Reports",
     items: [
       {
-        title: "Campaigns",
+        title: "Listing Items",
         url: "#",
         icon: List,
         isActive: true,
@@ -49,10 +49,13 @@ const menuGroup = [
             title: "Campaign List",
             url: "/campaigns",
           },
+          {
+            title: "Investor List",
+            url: "/investors",
+          },
         ],
       },
-     
-    ]
+    ],
   },
   {
     label: "Settings",
@@ -66,11 +69,10 @@ const menuGroup = [
             title: "General",
             url: "#",
           },
-
-        ]
+        ],
       },
-    ]
-  }
+    ],
+  },
 ];
 
 export function AppSidebar({
