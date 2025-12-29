@@ -15,20 +15,18 @@ import {
   SquareTerminal,
   User,
   ListCheck,
-  List
+  List,
+  Cog
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
 import { NavUser } from "@/components/nav-user"
-import { TeamSwitcher } from "@/components/team-switcher"
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-  SidebarMenuButton,
 } from "@/components/ui/sidebar"
 import useAuthStore from "@/lib/auth-store"
 import { Avatar } from "@radix-ui/react-avatar"
@@ -40,20 +38,19 @@ const menuGroup = [
     label: "Reports",
     items: [
       {
-        title: "Listing Items",
-        url: "#",
+        title: "Campaign List",
+        url: "/campaigns",
+        icon: PieChart,
+      },
+      {
+        title: "Investor List",
+        url: "/investors",
         icon: List,
-        isActive: true,
-        items: [
-          {
-            title: "Campaign List",
-            url: "/campaigns",
-          },
-          {
-            title: "Investor List",
-            url: "/investors",
-          },
-        ],
+      },
+      {
+        title: "Transactions",
+        url: "/transactions",
+        icon: List,
       },
     ],
   },
@@ -61,15 +58,9 @@ const menuGroup = [
     label: "Settings",
     items: [
       {
-        title: "Site info",
+        title: "General",
         url: "#",
-        icon: SquareTerminal,
-        items: [
-          {
-            title: "General",
-            url: "#",
-          },
-        ],
+        icon: Cog,
       },
     ],
   },
@@ -84,22 +75,39 @@ export function AppSidebar({
       <SidebarHeader>
         <Link
           href="/"
-          className="flex gap-2 bg-sidebar-accent text-sidebar-accent-foreground px-2 py-1">
-          <div
-            className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+          className="flex gap-2 bg-sidebar-accent text-sidebar-accent-foreground px-2 py-1"
+        >
+          <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
             <GaugeCircle className="size-4" />
           </div>
           <div className="grid flex-1 text-left text-sm leading-tight">
-            <span className="truncate font-semibold">
-              EFI Dashboard
-            </span>
+            <span className="truncate font-semibold">EFI Dashboard</span>
             <span className="truncate text-xs">Admin</span>
           </div>
         </Link>
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="px-2 py-4">
         {menuGroup.map((group) => (
-          <NavMain key={group.label} label={group.label} items={group.items} />
+          <div key={group.label} className="mb-4">
+            {/* Group label */}
+            <p className="px-2 mb-2 text-xs font-semibold uppercase text-slate-400">
+              {group.label}
+            </p>
+
+            {/* Menu items */}
+            <div className="space-y-1 pl-4">
+              {group.items.map((item) => (
+                <Link
+                  key={item.title}
+                  href={item.url}
+                  className="flex items-center gap-2 rounded-md px-2 py-2 text-sm hover:bg-sidebar-accent"
+                >
+                  <item.icon className="size-4" />
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+          </div>
         ))}
       </SidebarContent>
       <SidebarFooter>
