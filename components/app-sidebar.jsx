@@ -52,6 +52,11 @@ const menuGroup = [
         url: "/transactions",
         icon: List,
       },
+      {
+        title: "Deals",
+        url: "/deals",
+        icon: List,
+      },
     ],
   },
   {
