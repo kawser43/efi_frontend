@@ -10,7 +10,7 @@ import { buttonVariants } from "@/components/ui/button"
 import Link from "next/link"
 import { PlusIcon } from "lucide-react"
 
-export default function TransactionsPage() {
+export default function PayoutsPage() {
     const { toast } = useToast()
     const [isLoading, setIsLoading] = useState(true)
     const [initialData, setInitialData] = useState([])
@@ -20,7 +20,7 @@ export default function TransactionsPage() {
     useEffect(() => {
         const fetchInitialData = async () => {
             try {
-                const { data: { status, data, message } } = await http.get('transactions', {
+                const { data: { status, data, message } } = await http.get('payouts', {
                     params: {
                         page: 1
                     }
@@ -61,13 +61,13 @@ export default function TransactionsPage() {
     return (
         <div className="w-full">
             <div className="flex justify-between items-start">
-                <h1 className="text-2xl text-slate-800 font-semibold mb-6">Transaction List</h1>
+                <h1 className="text-2xl text-slate-800 font-semibold mb-6">Payout List</h1>
                 <div>
                     <Link
-                        href="/transactions/add"
+                        href="/payouts/add"
                         className={buttonVariants({ variant: "default", className: "flex items-center gap-x-1" })}
                     >
-                        <PlusIcon className="w-4 h-4" /> Add Transaction
+                        <PlusIcon className="w-4 h-4" /> Add Payout
                     </Link>
                 </div>
             </div>

@@ -60,7 +60,7 @@ export function DataTable({ columns, initialData, initialTotalItems, pageSize })
         const fetchData = async () => {
             setIsLoading(true)
             try {
-                const { data: { status, data, message } } = await http.get('transactions', {
+                const { data: { status, data, message } } = await http.get('payouts', {
                     params: {
                         page: pageIndex + 1,
                         search: debouncedFilter

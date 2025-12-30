@@ -48,8 +48,8 @@ const menuGroup = [
         icon: List,
       },
       {
-        title: "Transactions",
-        url: "/transactions",
+        title: "Payouts",
+        url: "/payouts",
         icon: List,
       },
       {
