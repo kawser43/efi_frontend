@@ -62,14 +62,14 @@ export default function PayoutsPage() {
         <div className="w-full">
             <div className="flex justify-between items-start">
                 <h1 className="text-2xl text-slate-800 font-semibold mb-6">Payout List</h1>
-                <div>
+                {/* <div>
                     <Link
                         href="/payouts/add"
                         className={buttonVariants({ variant: "default", className: "flex items-center gap-x-1" })}
                     >
                         <PlusIcon className="w-4 h-4" /> Add Payout
                     </Link>
-                </div>
+                </div> */}
             </div>
 
             <div className="w-full">
