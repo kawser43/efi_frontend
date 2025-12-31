@@ -10,7 +10,7 @@ import { Button, buttonVariants } from "@/components/ui/button"
 import { PlusIcon } from "lucide-react"
 import Link from "next/link"
 
-export default function InvestorsDetailPage() {
+export default function PayoutDetailPage() {
     const { toast } = useToast()
     const {id} = useParams()
     const [isLoading, setIsLoading] = useState(true)
